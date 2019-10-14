@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: cz.msebera.android:httpclient:4.4.1@jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cz.msebera.android/httpclient/4.4.1/f9fd70a417972147d4e85beca6db546344e7a0ca/httpclient-4.4.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cz.msebera.android/httpclient/4.4.1/e47477eb06afa7729cedb0d097135dd619b32ac2/httpclient-4.4.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cz.msebera.android/httpclient/4.4.1/79dde8ef29f9455a8cf6b3b9b64b103f4c0e56c9/httpclient-4.4.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
