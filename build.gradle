@@ -50,7 +50,7 @@ android {
     compileSdkVersion 28
     buildToolsVersion '29.0.2'
     defaultConfig {
-        applicationId "gpsplus.rtkgps"
+        applicationId "jp.gpstracking.rtkgps"
         minSdkVersion 24
         targetSdkVersion 28
         multiDexEnabled true
