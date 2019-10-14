@@ -3,11 +3,12 @@ package gpsplus.rtkgps.settings;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.preference.EditTextPreference;
-import android.preference.ListPreference;
-import android.preference.TwoStatePreference;
 import android.text.TextUtils;
 import android.util.Log;
+
+import androidx.preference.EditTextPreference;
+import androidx.preference.ListPreference;
+import androidx.preference.TwoStatePreference;
 
 import gpsplus.rtkgps.BuildConfig;
 import gpsplus.rtkgps.R;

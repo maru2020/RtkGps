@@ -3,11 +3,12 @@ package gpsplus.rtkgps.settings;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.EditTextPreference;
-import android.preference.PreferenceFragment;
 import android.util.Log;
 
 //import com.dropbox.sync.android.DbxAccountManager;
+
+import androidx.preference.EditTextPreference;
+import androidx.preference.PreferenceFragmentCompat;
 
 import gpsplus.rtkgps.BuildConfig;
 import gpsplus.rtkgps.MainActivity;
@@ -19,7 +20,7 @@ import java.io.File;
 
 import javax.annotation.Nonnull;
 
-public class StreamFileClientFragment extends PreferenceFragment {
+public class StreamFileClientFragment extends PreferenceFragmentCompat {
 
     private static final boolean DBG = BuildConfig.DEBUG & true;
 
@@ -87,6 +88,11 @@ public class StreamFileClientFragment extends PreferenceFragment {
         getPreferenceManager().setSharedPreferencesName(mSharedPrefsName);
 
         initPreferenceScreen();
+    }
+
+    @Override
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+
     }
 
     protected void initPreferenceScreen() {

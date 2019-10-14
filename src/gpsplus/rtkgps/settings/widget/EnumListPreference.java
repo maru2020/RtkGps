@@ -2,8 +2,9 @@ package gpsplus.rtkgps.settings.widget;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.preference.ListPreference;
 import android.util.AttributeSet;
+
+import androidx.preference.ListPreference;
 
 import gpsplus.rtklib.constants.IHasRtklibId;
 

@@ -1,17 +1,22 @@
 package gpsplus.rtkgps.settings;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.preference.EditTextPreference;
-import android.preference.ListPreference;
-import android.preference.PreferenceFragment;
 import android.text.TextUtils;
 import android.util.Log;
-import android.widget.EditText;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.EditTextPreference;
+import androidx.preference.ListPreference;
+import androidx.preference.PreferenceFragmentCompat;
+
+import java.util.ArrayList;
+import java.util.EnumSet;
+import java.util.HashSet;
+import java.util.Set;
 
 import gpsplus.rtkgps.BuildConfig;
 import gpsplus.rtkgps.R;
@@ -21,7 +26,6 @@ import gpsplus.rtkgps.settings.widget.IonosphereCorrectionPreference;
 import gpsplus.rtkgps.settings.widget.MultiSelectListPreferenceWorkaround;
 import gpsplus.rtkgps.settings.widget.PositioningModePreference;
 import gpsplus.rtkgps.settings.widget.TroposphereCorrectionPreference;
-import gpsplus.rtkgps.utils.PreciseEphemerisProvider;
 import gpsplus.rtklib.ProcessingOptions;
 import gpsplus.rtklib.constants.EarthTideCorrectionType;
 import gpsplus.rtklib.constants.EphemerisOption;
@@ -30,13 +34,8 @@ import gpsplus.rtklib.constants.NavigationSystem;
 import gpsplus.rtklib.constants.PositioningMode;
 import gpsplus.rtklib.constants.TroposphereOption;
 
-import java.util.ArrayList;
-import java.util.EnumSet;
-import java.util.HashSet;
-import java.util.Set;
 
-
-public class ProcessingOptions1Fragment extends PreferenceFragment {
+public class ProcessingOptions1Fragment extends PreferenceFragmentCompat {
 
     private static final boolean DBG = BuildConfig.DEBUG & true;
     static final String TAG = ProcessingOptions1Fragment.class.getSimpleName();
@@ -161,6 +160,11 @@ public class ProcessingOptions1Fragment extends PreferenceFragment {
         addPreferencesFromResource(R.xml.processing_options1);
 
         initSettings1();
+    }
+
+    @Override
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+
     }
 
     @Override
@@ -434,7 +438,7 @@ public class ProcessingOptions1Fragment extends PreferenceFragment {
         Set<String> vSet;
 
         opts = new ProcessingOptions();
-        prefs = ctx.getSharedPreferences(SHARED_PREFS_NAME, Activity.MODE_PRIVATE);
+        prefs = ctx.getSharedPreferences(SHARED_PREFS_NAME, AppCompatActivity.MODE_PRIVATE);
 
         v = prefs.getString(KEY_POSITIONING_MODE, null);
         opts.setPositioningMode(PositioningMode.valueOf(v));
@@ -516,9 +520,9 @@ public class ProcessingOptions1Fragment extends PreferenceFragment {
         opts.setMinLockToFixAmbiguity(Integer.parseInt(prefs.getString(KEY_MIN_FIX_LOCK, "0")));
 
 
-        SharedPreferences roverPrefs = ctx.getSharedPreferences(InputRoverFragment.SHARED_PREFS_NAME, Activity.MODE_PRIVATE);
+        SharedPreferences roverPrefs = ctx.getSharedPreferences(InputRoverFragment.SHARED_PREFS_NAME, AppCompatActivity.MODE_PRIVATE);
         opts.setAntTypeRover(roverPrefs.getString(InputRoverFragment.KEY_ANTENNA, ""));
-        SharedPreferences basePrefs = ctx.getSharedPreferences(InputBaseFragment.SHARED_PREFS_NAME, Activity.MODE_PRIVATE);
+        SharedPreferences basePrefs = ctx.getSharedPreferences(InputBaseFragment.SHARED_PREFS_NAME, AppCompatActivity.MODE_PRIVATE);
         opts.setAntTypeBase(basePrefs.getString(InputRoverFragment.KEY_ANTENNA, ""));
 
         return opts;

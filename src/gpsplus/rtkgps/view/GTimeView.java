@@ -2,21 +2,21 @@ package gpsplus.rtkgps.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import androidx.appcompat.widget.AppCompatTextView;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.widget.TextView;
-
-import gpsplus.rtkgps.BuildConfig;
-import gpsplus.rtkgps.R;
-import gpsplus.rtklib.GTime;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
 
-public class GTimeView extends TextView {
+import gpsplus.rtkgps.BuildConfig;
+import gpsplus.rtkgps.R;
+import gpsplus.rtklib.GTime;
+
+public class GTimeView extends AppCompatTextView {
 
     public enum Format {
 

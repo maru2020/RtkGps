@@ -3,9 +3,10 @@ package gpsplus.rtkgps.settings;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.EditTextPreference;
-import android.preference.PreferenceFragment;
 import android.util.Log;
+
+import androidx.preference.EditTextPreference;
+import androidx.preference.PreferenceFragmentCompat;
 
 import javax.annotation.Nonnull;
 
@@ -15,7 +16,7 @@ import gpsplus.rtklib.RtkServerSettings.TransportSettings;
 import gpsplus.rtklib.constants.StreamType;
 
 
-public class StreamUdpClientFragment extends PreferenceFragment {
+public class StreamUdpClientFragment extends PreferenceFragmentCompat {
 
     private static final boolean DBG = BuildConfig.DEBUG & true;
 
@@ -105,6 +106,11 @@ public class StreamUdpClientFragment extends PreferenceFragment {
         getPreferenceManager().setSharedPreferencesName(mSharedPrefsName);
 
         initPreferenceScreen();
+    }
+
+    @Override
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+
     }
 
     protected void initPreferenceScreen() {

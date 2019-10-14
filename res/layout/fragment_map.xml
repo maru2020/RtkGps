@@ -11,7 +11,7 @@
 	    android:layout_height="wrap_content"
 	    android:layout_gravity="top|right"
 	    android:layout_marginBottom="5dp"
-	    android:layout_marginTop="?android:attr/actionBarSize"
+	    android:layout_marginTop="?attr/actionBarSize"
 	    android:background="#aa333333"
 	    android:padding="4dp" />
 	

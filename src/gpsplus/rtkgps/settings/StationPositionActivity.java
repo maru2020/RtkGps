@@ -1,6 +1,5 @@
 package gpsplus.rtkgps.settings;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -19,13 +18,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import butterknife.ButterKnife;
-import butterknife.BindView;
-import gpsplus.rtkgps.BuildConfig;
-import gpsplus.rtkgps.R;
-import gpsplus.rtklib.RtkCommon;
-import gpsplus.rtklib.RtkCommon.Position3d;
-import gpsplus.rtklib.constants.StationPositionType;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Locale;
 import java.util.regex.Matcher;
@@ -33,8 +26,16 @@ import java.util.regex.Pattern;
 
 import javax.annotation.Nonnull;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import gpsplus.rtkgps.BuildConfig;
+import gpsplus.rtkgps.R;
+import gpsplus.rtklib.RtkCommon;
+import gpsplus.rtklib.RtkCommon.Position3d;
+import gpsplus.rtklib.constants.StationPositionType;
 
-public class StationPositionActivity extends Activity {
+
+public class StationPositionActivity extends AppCompatActivity {
 
     private static final boolean DBG = BuildConfig.DEBUG & false;
     static final String TAG = StationPositionActivity.class.getSimpleName();

@@ -2,7 +2,6 @@ package gpsplus.rtkgps;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.IntentService;
 import android.app.Notification;
 import android.app.PendingIntent;
@@ -21,24 +20,25 @@ import android.os.IBinder;
 import android.os.PowerManager;
 import android.os.SystemClock;
 import android.provider.Settings;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.NotificationCompat;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
 import android.util.Log;
 import android.widget.Toast;
-import butterknife.BindString;
-
-//import com.dropbox.sync.android.DbxAccountManager;
-//import com.dropbox.sync.android.DbxException;
-//import com.dropbox.sync.android.DbxException.Unauthorized;
-//import com.dropbox.sync.android.DbxFile;
-//import com.dropbox.sync.android.DbxFileSystem;
-//import com.dropbox.sync.android.DbxPath;
-//import com.dropbox.sync.android.DbxPath.InvalidPathException;
 
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.listener.single.DialogOnDeniedPermissionListener;
 import com.karumi.dexter.listener.single.PermissionListener;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.lang.reflect.Method;
+import java.util.Locale;
+
+import butterknife.BindString;
 import gpsplus.rtkgps.settings.OutputGPXTraceFragment;
 import gpsplus.rtkgps.settings.ProcessingOptions1Fragment;
 import gpsplus.rtkgps.settings.SettingsHelper;
@@ -64,12 +64,13 @@ import gpsplus.rtklib.constants.EphemerisOption;
 import gpsplus.rtklib.constants.GeoidModel;
 import gpsplus.rtklib.constants.StreamType;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.lang.reflect.Method;
-import java.util.Locale;
+//import com.dropbox.sync.android.DbxAccountManager;
+//import com.dropbox.sync.android.DbxException;
+//import com.dropbox.sync.android.DbxException.Unauthorized;
+//import com.dropbox.sync.android.DbxFile;
+//import com.dropbox.sync.android.DbxFileSystem;
+//import com.dropbox.sync.android.DbxPath;
+//import com.dropbox.sync.android.DbxPath.InvalidPathException;
 
 public class RtkNaviService extends IntentService implements LocationListener {
 
@@ -421,7 +422,7 @@ public class RtkNaviService extends IntentService implements LocationListener {
                                     .withMessage(permissionMessage)
                                     .withButtonText(android.R.string.ok)
                                     .build();
-                    Dexter.withActivity((Activity)this.getApplicationContext())
+                    Dexter.withActivity((AppCompatActivity)this.getApplicationContext())
                             .withPermission(Manifest.permission.ACCESS_FINE_LOCATION)
                             .withListener(dialogPermissionListener).check();
                 }else {

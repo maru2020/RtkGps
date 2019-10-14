@@ -5,12 +5,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.EditTextPreference;
-import android.preference.ListPreference;
-import android.preference.Preference;
-import android.preference.Preference.OnPreferenceClickListener;
-import android.preference.PreferenceFragment;
 import android.util.Log;
+
+
+import androidx.preference.EditTextPreference;
+import androidx.preference.ListPreference;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceFragmentCompat;
 
 import gpsplus.rtkgps.BuildConfig;
 import gpsplus.rtkgps.R;
@@ -31,7 +32,7 @@ import java.util.Arrays;
 import javax.annotation.Nonnull;
 
 
-public class InputRoverFragment extends PreferenceFragment {
+public class InputRoverFragment extends PreferenceFragmentCompat {
 
     private static final boolean DBG = BuildConfig.DEBUG & true;
 
@@ -106,7 +107,7 @@ public class InputRoverFragment extends PreferenceFragment {
 
         mProcessingOptions = ProcessingOptions1Fragment.readPrefs(getActivity());
 
-        findPreference(KEY_STREAM_SETTINGS_BUTTON).setOnPreferenceClickListener(new OnPreferenceClickListener() {
+        findPreference(KEY_STREAM_SETTINGS_BUTTON).setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
                 streamSettingsButtonClicked();
@@ -114,7 +115,7 @@ public class InputRoverFragment extends PreferenceFragment {
             }
         });
 
-        findPreference(KEY_COMMANDS_AT_STARTUP_SHUTDOWN_BUTTON).setOnPreferenceClickListener(new OnPreferenceClickListener() {
+        findPreference(KEY_COMMANDS_AT_STARTUP_SHUTDOWN_BUTTON).setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
                 commandsAtStartupShutdownButtonClicked();
@@ -125,7 +126,7 @@ public class InputRoverFragment extends PreferenceFragment {
         final Preference stationBtn = findPreference(KEY_STATION_POSITION_BUTTON);
         if (stationBtn != null) {
             if (stationPositionButtonDisabledCause() == 0) {
-                stationBtn.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+                stationBtn.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                     @Override
                     public boolean onPreferenceClick(Preference preference) {
                         stationPositionButtonClicked();
@@ -139,6 +140,11 @@ public class InputRoverFragment extends PreferenceFragment {
 
         ListPreference listPreferenceAntrennas = (ListPreference) findPreference("antenna");
         RtkCommon.getAntListAsListPreference(listPreferenceAntrennas);
+    }
+
+    @Override
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+
     }
 
     @Override

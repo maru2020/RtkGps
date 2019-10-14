@@ -2,17 +2,16 @@ package gpsplus.rtkgps.settings;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.Preference.OnPreferenceChangeListener;
-import android.preference.PreferenceFragment;
 
 //import com.dropbox.sync.android.DbxAccountManager;
+
+import androidx.preference.PreferenceFragmentCompat;
 
 import gpsplus.rtkgps.MainActivity;
 import gpsplus.rtkgps.R;
 
 
-public class OutputGPXTraceFragment extends PreferenceFragment {
+public class OutputGPXTraceFragment extends PreferenceFragmentCompat {
 
     public static final String SHARED_PREFS_NAME = "OutputGPXTrace";
     @SuppressWarnings("unused")
@@ -48,6 +47,11 @@ public class OutputGPXTraceFragment extends PreferenceFragment {
                                         }
                                     }); // end of checkbox listener
  */
+    }
+
+    @Override
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+
     }
 
     public Context getApplicationContext() {

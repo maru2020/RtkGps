@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="gpsplus.rtkgps"
+	xmlns:tools="http://schemas.android.com/tools"
+	package="gpsplus.rtkgps"
     android:versionCode="26"
     android:versionName="1.0 Alpha 26" >
 
-    <uses-sdk
-        android:minSdkVersion="18"
-        android:targetSdkVersion="18" />
-
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.USB_PERMISSION" />
+	<!--
     <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"/>
-    
+    -->
     
     <!-- osmdroid -->
 
@@ -65,18 +63,18 @@
         
         <activity
             android:name=".settings.StreamDialogActivity"
-            android:theme="@android:style/Theme.Holo.Dialog.MinWidth" />
+            android:theme="@style/Theme.AppCompat.Dialog.MinWidth" />
         
         <activity
             android:name=".settings.StartupShutdownSettingsActivity"
-            android:theme="@android:style/Theme.Holo.Dialog"  />
+            android:theme="@style/Theme.AppCompat.Dialog"  />
         
 		<activity
             android:name=".settings.StationPositionActivity"
-            android:theme="@android:style/Theme.Holo.Dialog" />
+            android:theme="@style/Theme.AppCompat.Dialog" />
         <activity
             android:name="gpsplus.rtkgps.ToolsActivity"
-            android:theme="@android:style/Theme.Holo.Dialog"
+            android:theme="@style/Theme.AppCompat.Dialog"
             />
         		
 		<activity android:name="gpsplus.rtkgps.AboutActivity"
@@ -99,7 +97,6 @@
 		<meta-data
 		    android:name="com.google.android.gms.version"
 		    android:value="@integer/google_play_services_version" />
-
 
     </application>
 

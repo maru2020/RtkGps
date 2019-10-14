@@ -1,13 +1,11 @@
 package gpsplus.rtkgps;
 
-import static junit.framework.Assert.assertNotNull;
-
 import android.app.Activity;
-import android.app.Fragment;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.location.Location;
 import android.os.Bundle;
+
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
@@ -18,19 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import butterknife.ButterKnife;
-import butterknife.BindView;
-import gpsplus.rtkgps.geoportail.GeoportailLayer;
-import gpsplus.rtkgps.geoportail.GeoportailWMTSTileSource;
-import gpsplus.rtkgps.view.GTimeView;
-import gpsplus.rtkgps.view.SolutionView;
-import gpsplus.rtkgps.view.StreamIndicatorsView;
-import gpsplus.rtklib.RtkCommon;
-import gpsplus.rtklib.RtkCommon.Position3d;
-import gpsplus.rtklib.RtkControlResult;
-import gpsplus.rtklib.RtkServerStreamStatus;
-import gpsplus.rtklib.Solution;
-import gpsplus.rtklib.constants.SolutionStatus;
+import androidx.fragment.app.Fragment;
 
 import org.osmdroid.ResourceProxy;
 import org.osmdroid.tileprovider.MapTileProviderBase;
@@ -47,6 +33,22 @@ import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
 
 import java.util.Timer;
 import java.util.TimerTask;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import gpsplus.rtkgps.geoportail.GeoportailLayer;
+import gpsplus.rtkgps.geoportail.GeoportailWMTSTileSource;
+import gpsplus.rtkgps.view.GTimeView;
+import gpsplus.rtkgps.view.SolutionView;
+import gpsplus.rtkgps.view.StreamIndicatorsView;
+import gpsplus.rtklib.RtkCommon;
+import gpsplus.rtklib.RtkCommon.Position3d;
+import gpsplus.rtklib.RtkControlResult;
+import gpsplus.rtklib.RtkServerStreamStatus;
+import gpsplus.rtklib.Solution;
+import gpsplus.rtklib.constants.SolutionStatus;
+
+import static junit.framework.Assert.assertNotNull;
 
 public class MapFragment extends Fragment {
 

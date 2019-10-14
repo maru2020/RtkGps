@@ -1,6 +1,5 @@
 package gpsplus.rtkgps.settings;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
@@ -12,6 +11,8 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceFragment;
 import android.text.TextUtils;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import gpsplus.rtkgps.BuildConfig;
 import gpsplus.rtkgps.R;
@@ -82,7 +83,7 @@ public class SolutionOutputSettingsFragment extends PreferenceFragment {
         mSzGeodetic = ctx.getResources().getStringArray(R.array.solopt_height_entries)[1];
 
         opts = new SolutionOptions();
-        prefs = ctx.getSharedPreferences(SHARED_PREFS_NAME, Activity.MODE_PRIVATE);
+        prefs = ctx.getSharedPreferences(SHARED_PREFS_NAME, AppCompatActivity.MODE_PRIVATE);
 
         try {
             opts.setOutHead(prefs.getBoolean(KEY_OUTPUT_HEADER, opts.getOutHead()));

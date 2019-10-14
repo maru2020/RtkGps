@@ -1,15 +1,16 @@
 package gpsplus.rtkgps.settings;
 
-import android.app.Activity;
-import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+
 import gpsplus.rtkgps.R;
 import gpsplus.rtklib.constants.StreamType;
 
-public class StreamDialogActivity extends Activity {
+public class StreamDialogActivity extends AppCompatActivity {
 
     /** Fragment type: {@link StreamType} .name() */
     public static final String ARG_FRAGMENT_TYPE = "fragment_type";
@@ -86,7 +87,7 @@ public class StreamDialogActivity extends Activity {
 
         fragment.setArguments(fragmentArgs);
 
-        getFragmentManager().beginTransaction()
+        getSupportFragmentManager().beginTransaction()
         .replace(R.id.fragment_container, fragment).commit();
 
         setTitle(title);

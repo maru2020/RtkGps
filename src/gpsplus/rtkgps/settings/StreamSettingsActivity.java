@@ -1,20 +1,22 @@
 package gpsplus.rtkgps.settings;
 
-import android.app.ActionBar;
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.v13.app.FragmentPagerAdapter;
-import android.support.v4.app.NavUtils;
-import android.support.v4.view.ViewPager;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NavUtils;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager.widget.ViewPager;
+
 import android.view.MenuItem;
 
 import gpsplus.rtkgps.R;
 
-public class StreamSettingsActivity extends Activity implements
+public class StreamSettingsActivity extends AppCompatActivity implements
 ActionBar.TabListener {
 
     public static final String ARG_STEAM =  "stream";
@@ -24,12 +26,12 @@ ActionBar.TabListener {
     public static final int STREAM_LOG_SETTINGS = 2;
 
     /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
+     * The {@link androidx.core.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
-     * {@link android.support.v4.app.FragmentPagerAdapter} derivative, which
+     * {@link androidx.core.app.FragmentPagerAdapter} derivative, which
      * will keep every loaded fragment in memory. If this becomes too memory
      * intensive, it may be best to switch to a
-     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
+     * {@link androidx.core.app.FragmentStatePagerAdapter}.
      */
     FragmentPagerAdapter mSectionsPagerAdapter;
 
@@ -44,7 +46,7 @@ ActionBar.TabListener {
         setContentView(R.layout.activity_input_stream_settings);
 
         // Set up the action bar.
-        final ActionBar actionBar = getActionBar();
+        final ActionBar actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         // Show the Up button in the action bar.
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -53,17 +55,17 @@ ActionBar.TabListener {
         switch (stream) {
         case STREAM_INPUT_SETTINGS:
             mSectionsPagerAdapter = new InputStreamSettingsPagerAdapter(
-                    getFragmentManager(), getResources());
+                    getSupportFragmentManager(), getResources());
             setTitle(R.string.title_activity_input_stream_settings);
             break;
         case STREAM_OUTPUT_SETTINGS:
             mSectionsPagerAdapter = new OutputStreamSettingsPagerAdapter(
-                    getFragmentManager(), getResources());
+                    getSupportFragmentManager(), getResources());
             setTitle(R.string.title_activity_output_stream_settings);
             break;
         case STREAM_LOG_SETTINGS:
             mSectionsPagerAdapter = new LogStreamSettingsPagerAdapter(
-                    getFragmentManager(), getResources());
+                    getSupportFragmentManager(), getResources());
             setTitle(R.string.title_activity_log_stream_settings);
             break;
         default:
@@ -117,13 +119,14 @@ ActionBar.TabListener {
 
     @Override
     public void onTabUnselected(ActionBar.Tab tab,
-            FragmentTransaction fragmentTransaction) {
+                                FragmentTransaction fragmentTransaction) {
     }
 
     @Override
     public void onTabReselected(ActionBar.Tab tab,
             FragmentTransaction fragmentTransaction) {
     }
+
 
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to

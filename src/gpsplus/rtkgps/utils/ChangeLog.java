@@ -14,24 +14,26 @@
  */
 package gpsplus.rtkgps.utils;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.graphics.Color;
 import android.preference.PreferenceManager;
+
 import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.webkit.WebView;
 
-import gpsplus.rtkgps.R;
+import androidx.appcompat.app.AlertDialog;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Locale;
+
+import gpsplus.rtkgps.R;
 
 public class ChangeLog {
 

@@ -1,6 +1,5 @@
 package gpsplus.rtkgps;
 
-import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,23 +7,24 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 
-import gpsplus.rtkgps.settings.ProcessingOptions1Fragment;
-import gpsplus.rtkgps.utils.HTTPDownloader;
-import gpsplus.rtkgps.utils.IDownloaderAccessResponse;
-import gpsplus.rtkgps.utils.PreciseEphemerisDownloader;
-import gpsplus.rtkgps.utils.PreciseEphemerisProvider;
-import gpsplus.rtklib.RtkCommon;
-import gpsplus.rtklib.constants.EphemerisOption;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.zip.GZIPInputStream;
 
+import gpsplus.rtkgps.settings.ProcessingOptions1Fragment;
+import gpsplus.rtkgps.utils.HTTPDownloader;
+import gpsplus.rtkgps.utils.IDownloaderAccessResponse;
+import gpsplus.rtkgps.utils.PreciseEphemerisDownloader;
+import gpsplus.rtkgps.utils.PreciseEphemerisProvider;
+import gpsplus.rtklib.constants.EphemerisOption;
 
 
 
-public class ToolsActivity extends Activity implements IDownloaderAccessResponse{
+
+public class ToolsActivity extends AppCompatActivity implements IDownloaderAccessResponse{
 
     private final String TAG = ToolsActivity.class.getSimpleName();
     @SuppressWarnings("unused")

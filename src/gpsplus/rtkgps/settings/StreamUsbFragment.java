@@ -4,9 +4,10 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.preference.ListPreference;
-import android.preference.PreferenceFragment;
 import android.util.Log;
+
+import androidx.preference.ListPreference;
+import androidx.preference.PreferenceFragmentCompat;
 
 import gpsplus.rtkgps.MainActivity;
 import gpsplus.rtkgps.usb.SerialLineConfiguration;
@@ -19,7 +20,7 @@ import gpsplus.rtkgps.R;
 
 import javax.annotation.Nonnull;
 
-public class StreamUsbFragment extends PreferenceFragment {
+public class StreamUsbFragment extends PreferenceFragmentCompat {
 
     private static final boolean DBG = BuildConfig.DEBUG & true;
 
@@ -105,6 +106,11 @@ public class StreamUsbFragment extends PreferenceFragment {
         getPreferenceManager().setSharedPreferencesName(mSharedPrefsName);
 
         initPreferenceScreen();
+    }
+
+    @Override
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+
     }
 
     @Override

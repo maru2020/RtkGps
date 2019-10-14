@@ -3,8 +3,9 @@ package gpsplus.rtkgps.settings;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceFragment;
 import android.util.Log;
+
+import androidx.preference.PreferenceFragmentCompat;
 
 import javax.annotation.Nonnull;
 
@@ -14,7 +15,7 @@ import gpsplus.rtkgps.R;
 import gpsplus.rtklib.RtkServerSettings.TransportSettings;
 import gpsplus.rtklib.constants.StreamType;
 
-public class StreamMobileMapperFragment extends PreferenceFragment {
+public class StreamMobileMapperFragment extends PreferenceFragmentCompat {
 
     public static final String MOBILEMAPPER_INTERNAL_SENSOR_STR = "U-Blox M8030";
     public static final String MOBILEMAPPER_INTERNAL_SENSOR_POGOPIN_PORT = "/dev/ttyHSL1";
@@ -140,6 +141,10 @@ public class StreamMobileMapperFragment extends PreferenceFragment {
         initPreferenceScreen();
     }
 
+    @Override
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+
+    }
 
 
     protected void initPreferenceScreen() {

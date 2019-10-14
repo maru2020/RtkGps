@@ -4,8 +4,9 @@ import java.util.Set;
 
 import android.content.Context;
 import android.os.Build;
-import android.preference.MultiSelectListPreference;
 import android.util.AttributeSet;
+
+import androidx.preference.MultiSelectListPreference;
 
 public class MultiSelectListPreferenceWorkaround extends MultiSelectListPreference {
 

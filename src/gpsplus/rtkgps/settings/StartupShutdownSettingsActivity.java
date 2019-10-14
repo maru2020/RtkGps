@@ -1,9 +1,6 @@
 package gpsplus.rtkgps.settings;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.DialogFragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -14,17 +11,21 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
-import butterknife.ButterKnife;
-import butterknife.BindView;
-import gpsplus.rtkgps.BuildConfig;
-import gpsplus.rtkgps.R;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
-public class StartupShutdownSettingsActivity extends Activity {
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import gpsplus.rtkgps.BuildConfig;
+import gpsplus.rtkgps.R;
+
+public class StartupShutdownSettingsActivity extends AppCompatActivity {
 
     private static final boolean DBG = BuildConfig.DEBUG & false;
     static final String TAG = StartupShutdownSettingsActivity.class.getSimpleName();
@@ -123,7 +124,7 @@ public class StartupShutdownSettingsActivity extends Activity {
         SelectCommandsFileDialog dialog;
         dialog = new SelectCommandsFileDialog();
 
-        dialog.show(getFragmentManager(), "commandsSelector");
+        dialog.show(getSupportFragmentManager(), "commandsSelector");
 
     }
 

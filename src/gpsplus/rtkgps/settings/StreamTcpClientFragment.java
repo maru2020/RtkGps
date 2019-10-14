@@ -8,15 +8,17 @@ import gpsplus.rtkgps.R;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.EditTextPreference;
 import android.preference.PreferenceFragment;
 import android.util.Log;
+
+import androidx.preference.EditTextPreference;
+import androidx.preference.PreferenceFragmentCompat;
 
 import gpsplus.rtklib.RtkServerSettings.TransportSettings;
 import gpsplus.rtklib.constants.StreamType;
 
 
-public class StreamTcpClientFragment extends PreferenceFragment {
+public class StreamTcpClientFragment extends PreferenceFragmentCompat {
 
     private static final boolean DBG = BuildConfig.DEBUG & true;
 
@@ -106,6 +108,11 @@ public class StreamTcpClientFragment extends PreferenceFragment {
         getPreferenceManager().setSharedPreferencesName(mSharedPrefsName);
 
         initPreferenceScreen();
+    }
+
+    @Override
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+
     }
 
     protected void initPreferenceScreen() {

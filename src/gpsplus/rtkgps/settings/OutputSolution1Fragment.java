@@ -4,10 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.Preference.OnPreferenceClickListener;
-import android.preference.PreferenceFragment;
 import android.util.Log;
+
+import androidx.preference.Preference;
+import androidx.preference.PreferenceFragmentCompat;
 
 import gpsplus.rtkgps.BuildConfig;
 import gpsplus.rtkgps.R;
@@ -22,7 +22,7 @@ import gpsplus.rtklib.constants.StreamType;
 import javax.annotation.Nonnull;
 
 
-public class OutputSolution1Fragment extends PreferenceFragment {
+public class OutputSolution1Fragment extends PreferenceFragmentCompat {
 
     private static final boolean DBG = BuildConfig.DEBUG & true;
 
@@ -76,13 +76,18 @@ public class OutputSolution1Fragment extends PreferenceFragment {
 
         initPreferenceScreen();
 
-        findPreference(KEY_STREAM_SETTINGS_BUTTON).setOnPreferenceClickListener(new OnPreferenceClickListener() {
+        findPreference(KEY_STREAM_SETTINGS_BUTTON).setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
                 streamSettingsButtonClicked();
                 return true;
             }
         });
+
+    }
+
+    @Override
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
 
     }
 

@@ -1,8 +1,6 @@
 package gpsplus.rtkgps;
 
 import android.Manifest;
-import android.app.Activity;
-import android.app.Fragment;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -19,9 +17,11 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.IBinder;
 import android.preference.PreferenceActivity;
-import android.support.v4.app.ActionBarDrawerToggle;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.fragment.app.Fragment;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.InputType;
 import android.util.Log;
 import android.view.Menu;
@@ -36,12 +36,17 @@ import com.karumi.dexter.Dexter;
 import com.karumi.dexter.listener.multi.DialogOnAnyDeniedMultiplePermissionsListener;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import javax.annotation.Nonnull;
+
 import butterknife.BindString;
-import butterknife.ButterKnife;
 import butterknife.BindView;
-
-// import com.dropbox.sync.android.DbxAccountManager;
-
+import butterknife.ButterKnife;
 import gpsplus.ntripcaster.NTRIPCaster;
 import gpsplus.rtkgps.settings.NTRIPCasterSettingsFragment;
 import gpsplus.rtkgps.settings.ProcessingOptions1Fragment;
@@ -52,15 +57,9 @@ import gpsplus.rtkgps.settings.StreamSettingsActivity;
 import gpsplus.rtkgps.utils.ChangeLog;
 import gpsplus.rtkgps.utils.GpsTime;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+// import com.dropbox.sync.android.DbxAccountManager;
 
-import javax.annotation.Nonnull;
-
-public class MainActivity extends Activity implements OnSharedPreferenceChangeListener{
+public class MainActivity extends AppCompatActivity implements OnSharedPreferenceChangeListener{
 
     private static final boolean DBG = BuildConfig.DEBUG & true;
 //    public static final int REQUEST_LINK_TO_DBX = 2654;
@@ -440,7 +439,6 @@ public class MainActivity extends Activity implements OnSharedPreferenceChangeLi
         mDrawerToggle = new ActionBarDrawerToggle(
                 this,
                 mDrawerLayout,
-                R.drawable.ic_drawer,
                 R.string.drawer_open,
                 R.string.drawer_close
                 ) {
@@ -501,7 +499,7 @@ public class MainActivity extends Activity implements OnSharedPreferenceChangeLi
             throw new IllegalArgumentException();
         }
 
-        getFragmentManager()
+        getSupportFragmentManager()
         .beginTransaction()
         .replace(R.id.container, fragment)
         .commit();
