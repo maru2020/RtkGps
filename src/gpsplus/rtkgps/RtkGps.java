@@ -15,10 +15,10 @@ import org.gdal.gdal.gdal;
 import org.gdal.ogr.ogr;
 import org.proj4.PJ;
 
-@ReportsCrashes(formKey = "",
-    mailTo = "bug@sudagri-jatropha.com",
-    mode = ReportingInteractionMode.TOAST,
-    resToastText = R.string.crash_toast_text)
+//@ReportsCrashes(formKey = "",
+//    mailTo = "bug@sudagri-jatropha.com",
+//    mode = ReportingInteractionMode.TOAST,
+//    resToastText = R.string.crash_toast_text)
 public class RtkGps extends Application {
 
     private static final boolean DBG = BuildConfig.DEBUG & true;

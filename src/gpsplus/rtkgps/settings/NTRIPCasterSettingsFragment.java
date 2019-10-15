@@ -3,15 +3,16 @@ package gpsplus.rtkgps.settings;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.preference.CheckBoxPreference;
-import android.preference.PreferenceFragment;
 import android.widget.Toast;
+
+import androidx.preference.CheckBoxPreference;
+import androidx.preference.PreferenceFragmentCompat;
 
 import gpsplus.rtkgps.BuildConfig;
 import gpsplus.rtkgps.R;
 import gpsplus.rtkgps.utils.IP;
 
-public class NTRIPCasterSettingsFragment  extends PreferenceFragment {
+public class NTRIPCasterSettingsFragment  extends PreferenceFragmentCompat {
     private static final boolean DBG = BuildConfig.DEBUG & true;
 
     public static final String SHARED_PREFS_NAME = "CasterOptions";
@@ -35,6 +36,11 @@ public class NTRIPCasterSettingsFragment  extends PreferenceFragment {
         addPreferencesFromResource(R.xml.caster_options);
 
         initSettings();
+    }
+
+    @Override
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+
     }
 
     @Override

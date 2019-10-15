@@ -4,16 +4,20 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.IntentService;
 import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Binder;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -630,7 +634,37 @@ public class RtkNaviService extends IntentService implements LocationListener {
 
     @SuppressWarnings("deprecation")
     private Notification createForegroundNotification() {
-        CharSequence text = getText(R.string.local_service_started);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+        {
+            CharSequence text = getText(R.string.local_service_started);
+
+            String NOTIFICATION_CHANNEL_ID = "com.example.simpleapp";
+            String channelName = "My Background Service";
+
+            NotificationChannel chan = new NotificationChannel(NOTIFICATION_CHANNEL_ID, channelName, NotificationManager.IMPORTANCE_NONE);
+            chan.setLightColor(Color.BLUE);
+            chan.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+            NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+            assert manager != null;
+            manager.createNotificationChannel(chan);
+
+            // The PendingIntent to launch our activity if the user selects this
+            // notification
+            PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
+                    new Intent(this, MainActivity.class), 0);
+
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID);
+            builder.setContentTitle(getText(R.string.local_service_label));
+            builder.setContentText(text);
+            builder.setContentIntent(contentIntent);
+            builder.setSmallIcon(R.drawable.ic_launcher);
+            builder.setOngoing(true);
+            builder.setNumber(100);
+            builder.setAutoCancel(false);
+
+            return builder.build();
+        }
+            CharSequence text = getText(R.string.local_service_started);
 
         // The PendingIntent to launch our activity if the user selects this
         // notification
@@ -648,6 +682,8 @@ public class RtkNaviService extends IntentService implements LocationListener {
 
         return builder.build();
     }
+
+
 
     private class BluetoothCallbacks implements BluetoothToRtklib.Callbacks {
 

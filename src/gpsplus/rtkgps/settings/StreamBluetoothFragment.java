@@ -180,7 +180,8 @@ public class StreamBluetoothFragment extends PreferenceFragmentCompat {
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 String name = mBluetoothAdapter.getRemoteDevice(newValue.toString()).getName();
                 if (name == null) name = newValue.toString();
-//                preference.getEditor().putString(KEY_DEVICE_NAME, name).commit();
+                SharedPreferences prefs = getActivity().getSharedPreferences(mSharedPrefsName, Context.MODE_PRIVATE);
+                prefs.edit().putString(KEY_DEVICE_NAME, name).commit();
                 return true;
             }
         });

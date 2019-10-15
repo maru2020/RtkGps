@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:tools="http://schemas.android.com/tools"
 	package="gpsplus.rtkgps"
     android:versionCode="26"
     android:versionName="1.0 Alpha 26" >
@@ -11,6 +10,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.USB_PERMISSION" />
+	<uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 	<!--
     <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"/>
     -->
@@ -63,19 +63,18 @@
         
         <activity
             android:name=".settings.StreamDialogActivity"
-            android:theme="@style/Theme.AppCompat.Dialog.MinWidth" />
+			/>
         
         <activity
             android:name=".settings.StartupShutdownSettingsActivity"
-            android:theme="@style/Theme.AppCompat.Dialog"  />
+			/>
         
 		<activity
             android:name=".settings.StationPositionActivity"
-            android:theme="@style/Theme.AppCompat.Dialog" />
+            />
         <activity
             android:name="gpsplus.rtkgps.ToolsActivity"
-            android:theme="@style/Theme.AppCompat.Dialog"
-            />
+			/>
         		
 		<activity android:name="gpsplus.rtkgps.AboutActivity"
 		    android:label="@string/about_activity_label"

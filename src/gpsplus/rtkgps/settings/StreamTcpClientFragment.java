@@ -8,7 +8,6 @@ import gpsplus.rtkgps.R;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceFragment;
 import android.util.Log;
 
 import androidx.preference.EditTextPreference;

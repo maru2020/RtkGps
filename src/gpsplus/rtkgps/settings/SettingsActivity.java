@@ -3,11 +3,14 @@ package gpsplus.rtkgps.settings;
 import java.util.List;
 
 import gpsplus.rtkgps.R;
-import android.preference.PreferenceActivity;
 import androidx.core.app.NavUtils;
+
 import android.view.MenuItem;
 
-public class SettingsActivity extends PreferenceActivity {
+import net.mm2d.preference.Header;
+import net.mm2d.preference.PreferenceActivityCompat;
+
+public class SettingsActivity extends PreferenceActivityCompat {
 
     @Override
     public void onBuildHeaders(List<Header> target) {
@@ -28,7 +31,7 @@ public class SettingsActivity extends PreferenceActivity {
     protected boolean isValidFragmentA(String fragmentName) {
         return ProcessingOptions1Fragment.class.getName().equals(fragmentName);
     }
-    protected boolean isValidFragment(String fragmentName) {
+    public boolean isValidFragment(String fragmentName) {
         // Three setting panels can hit this:
         String processingPanel = ProcessingOptions1Fragment.class.getName();
         String solutionPanel = SolutionOutputSettingsFragment.class.getName();

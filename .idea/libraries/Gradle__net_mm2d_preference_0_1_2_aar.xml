@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: net.mm2d:preference:0.1.2@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7b3679517500684db5cd3e518434a2d4/preference-0.1.2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7b3679517500684db5cd3e518434a2d4/preference-0.1.2/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.mm2d/preference/0.1.2/34d0fa7b867ea125c71f4db9c77b8516d3c18c36/preference-0.1.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
